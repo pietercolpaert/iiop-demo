@@ -65,15 +65,26 @@ __Total__ | 67
 
 ## Step 3: Getting the real world input
 
-There are various ways to get to the real-world input: you can crowd-source it, you can fill it out yourself.
+There are various ways to get to the real-world input: you can crowd-source it, you can reason over already existing data or you can fill it out yourself. The result of this step should be an n-triples file which contains for each identifier whether it does or does not mean the same in the real world. The predicates that we are going to use for this are defined at http://semweb.mmlab.be/ns/iiop ; `iiop:sameAs` and `iiop:notSameAs`. For this dataset this means we need 4422 (67*66) statements. As these statements are unknown at this moment, we can generate a list of 4422 questions.
 
-The result of this step should be an n-triples file which contains for each identifier whether it does or does not mean the same in the real world. The predicates that we are going to use for this are defined at http://semweb.mmlab.be/ns/iiop: iiop:sameAs and iiop:notSameAs. For this dataset this means we need 4422 (67*66) statements.
+During the process of solving these questions yourself, you can use a reasoner to assist you. Each time a statement is added, the reasoner will then check whether more questions can be derived.
+In this case, we will use the reasoner by Ruben Verborgh which uses the EYE software.
+Using the command line, this can be done as follows:
+```bash
+#TODOOO
+```
+
+### Step 3.1: Generating the list of questions
+
+
+
+
 
 ## Step 4: Making the calculations
 
 We're going to create a dataset of ids that match in the real-world:
 
-_This is kind of hack-ish. We could have loaded it in a triple store and used SPARQL over it._
+_This is kind of hack-ish. We could have loaded it in a triple store and used SPARQL to query over it._
 
 ```bash
 grep /sameAs iiopsa.nt | cut -d" " -f3 | sort > realworldmatches.txt
@@ -82,7 +93,7 @@ grep /sameAs iiopsa.nt | cut -d" " -f3 | sort > realworldmatches.txt
 ### IIOP
 
 ```bash
-grep newyork realworldmatches.txt | while read a ; do { cat ../reference/reference.nt | grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} -o  ; } done |uniq | wc -l
+grep newyork realworldmatches.txt | while read a ; do { cat ../reference/reference.nt | grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} -o  ; } done | uniq | wc -l
 grep newyork realworldmatches.txt  | wc -l
 ```
 
