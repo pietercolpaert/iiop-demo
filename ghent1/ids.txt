@@ -1,0 +1,17 @@
+<http://iiop.demo.thedatatank.com/test/ghent1/>
+<http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0>
+<http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1>
+<http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2>
+<http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F3>
+<http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F4>
+<http://iiop.demo.thedatatank.com/test/ghent1/Openbaar+gebouw>
+<http://iiop.demo.thedatatank.com/test/ghent1/sporthallen/zwembaden>
+<http://iiop.demo.thedatatank.com/test/ghent1/Urinoir+op+openbaar+domein>
+<http://iiop.demo.thedatatank.com/test/ghent1/volwaardige+sanitaire+eenheid>
+<http://iiop.demo.thedatatank.com/test/ghent1/volwaardig+san%2Bgehand>
+<http://iiop.demo.thedatatank.com/test/ghent1/volwaardig+san%2Bgehand%2Bluiertafel>
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+<http://www.w3.org/2000/01/rdf-schema#>
+<http://www.w3.org/2001/XMLSchema#>
+<http://www.w3.org/2002/07/owl#>
+<http://xmlns.com/foaf/0.1/>

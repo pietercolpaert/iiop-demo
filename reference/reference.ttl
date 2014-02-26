@@ -1,0 +1,33 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ds: <http://iiop.demo.thedatatank.com/test/reference/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0> ds:identifier "http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0" ;
+	ds:description "Sint-Salvatorkerk Parking" ;
+	ds:type_location ds:Parking ;
+	ds:fee "0" ;
+	ds:always_open "yes" ;
+	ds:lat "51.06398815" ;
+	ds:long "3.729464105" .
+
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1> ds:identifier "http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1" ;
+	ds:description "Rerum novarum" ;
+	ds:type_location ds:Parking ;
+	ds:fee "0" ;
+	ds:always_open "yes" ;
+	ds:lat "51.02309551" ;
+	ds:long "3.72030602" .
+
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2> ds:identifier "http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2" ;
+	ds:description "AC Zuid" ;
+	ds:type_location <http://iiop.demo.thedatatank.com/test/reference/City+Building> ;
+	ds:fee "0" ;
+	ds:always_open "no" ;
+	ds:lat "51.04755645" ;
+	ds:long "3.730611791" .

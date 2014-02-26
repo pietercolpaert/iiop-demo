@@ -1,0 +1,12 @@
+<http://iiop.demo.thedatatank.com/test/reference/always_open>
+<http://iiop.demo.thedatatank.com/test/reference/City+Building>
+<http://iiop.demo.thedatatank.com/test/reference/description>
+<http://iiop.demo.thedatatank.com/test/reference/fee>
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0>
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1>
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2>
+<http://iiop.demo.thedatatank.com/test/reference/identifier>
+<http://iiop.demo.thedatatank.com/test/reference/lat>
+<http://iiop.demo.thedatatank.com/test/reference/long>
+<http://iiop.demo.thedatatank.com/test/reference/Parking>
+<http://iiop.demo.thedatatank.com/test/reference/type_location>

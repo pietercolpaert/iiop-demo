@@ -1,0 +1,16 @@
+<http://iiop.demo.thedatatank.com/test/newyork/100%25+Playground> <http://iiop.demo.thedatatank.com/test/newyork/name> "100% Playground" .
+<http://iiop.demo.thedatatank.com/test/newyork/100%25+Playground> <http://iiop.demo.thedatatank.com/test/newyork/location> "Glenwood Road, East 100 & East 101 streets" .
+<http://iiop.demo.thedatatank.com/test/newyork/100%25+Playground> <http://iiop.demo.thedatatank.com/test/newyork/openyearround> "yes" .
+<http://iiop.demo.thedatatank.com/test/newyork/174th+Street+Playground> <http://iiop.demo.thedatatank.com/test/newyork/name> "174th Street Playground" .
+<http://iiop.demo.thedatatank.com/test/newyork/174th+Street+Playground> <http://iiop.demo.thedatatank.com/test/newyork/location> "East 174 Street, Stratford Avenue, Bronx River Avenue" .
+<http://iiop.demo.thedatatank.com/test/newyork/174th+Street+Playground> <http://iiop.demo.thedatatank.com/test/newyork/openyearround> "yes" .
+<http://iiop.demo.thedatatank.com/test/newyork/227+Street+Playground> <http://iiop.demo.thedatatank.com/test/newyork/name> "227 Street Playground" .
+<http://iiop.demo.thedatatank.com/test/newyork/227+Street+Playground> <http://iiop.demo.thedatatank.com/test/newyork/location> "Bronx Boulevard between East 226 and East 228 streets" .
+<http://iiop.demo.thedatatank.com/test/newyork/227+Street+Playground> <http://iiop.demo.thedatatank.com/test/newyork/openyearround> "yes" .
+<http://iiop.demo.thedatatank.com/test/newyork/227+Street+Playground> <http://iiop.demo.thedatatank.com/test/newyork/handicapaccessible> "yes" .
+<http://iiop.demo.thedatatank.com/test/newyork/Abe+Lincoln> <http://iiop.demo.thedatatank.com/test/newyork/name> "Abe Lincoln" .
+<http://iiop.demo.thedatatank.com/test/newyork/Abe+Lincoln> <http://iiop.demo.thedatatank.com/test/newyork/location> "East 135 Street, between Madison & 5 avenues" .
+<http://iiop.demo.thedatatank.com/test/newyork/Abe+Lincoln> <http://iiop.demo.thedatatank.com/test/newyork/openyearround> "yes" .
+<http://iiop.demo.thedatatank.com/test/newyork/Abigail+Playground> <http://iiop.demo.thedatatank.com/test/newyork/name> "Abigail Playground" .
+<http://iiop.demo.thedatatank.com/test/newyork/Abigail+Playground> <http://iiop.demo.thedatatank.com/test/newyork/location> "East 156 Street, Tinton Avenue" .
+<http://iiop.demo.thedatatank.com/test/newyork/Abigail+Playground> <http://iiop.demo.thedatatank.com/test/newyork/openyearround> "no" .

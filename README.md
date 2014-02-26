@@ -41,10 +41,10 @@ Dataset | number of triples
 reference| 21
 ghent1 | 48
 newyork | 16
+antwerp | 45
+ghent2 | 24
 
-
-
-## Step 2: Generating helper files
+## Step 2: Generating the list of identifiers
 
 For each dataset, we generated a file containing all the IDs defined in a dataset. Using the n-triples file, we can generate this quickly using this bash command for each dataset:
 
@@ -58,11 +58,11 @@ Dataset | number of IDs
 reference| 12
 ghent1 | 17
 newyork | 9
-
-
-
+antwerp | 18
+ghent2 | 11
 
 ## Step 3: Getting the real world input
+
 
 
 ## Step 4: Making the calculations

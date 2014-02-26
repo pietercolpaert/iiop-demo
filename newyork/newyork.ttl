@@ -1,0 +1,28 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ds: <http://iiop.demo.thedatatank.com/test/newyork/> .
+
+
+<http://iiop.demo.thedatatank.com/test/newyork/100%25+Playground> ds:name "100% Playground" ;
+	ds:location "Glenwood Road, East 100 & East 101 streets" ;
+	ds:openyearround "yes" .
+
+<http://iiop.demo.thedatatank.com/test/newyork/174th+Street+Playground> ds:name "174th Street Playground" ;
+	ds:location "East 174 Street, Stratford Avenue, Bronx River Avenue" ;
+	ds:openyearround "yes" .
+
+<http://iiop.demo.thedatatank.com/test/newyork/227+Street+Playground> ds:name "227 Street Playground" ;
+	ds:location "Bronx Boulevard between East 226 and East 228 streets" ;
+	ds:openyearround "yes" ;
+	ds:handicapaccessible "yes" .
+
+<http://iiop.demo.thedatatank.com/test/newyork/Abe+Lincoln> ds:name "Abe Lincoln" ;
+	ds:location "East 135 Street, between Madison & 5 avenues" ;
+	ds:openyearround "yes" .
+
+<http://iiop.demo.thedatatank.com/test/newyork/Abigail+Playground> ds:name "Abigail Playground" ;
+	ds:location "East 156 Street, Tinton Avenue" ;
+	ds:openyearround "no" .

@@ -1,0 +1,34 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ds: <http://iiop.demo.thedatatank.com/test/ghent2/> .
+
+
+<http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898966> ds:id <http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898966> ;
+	ds:long "3.7529859" ;
+	ds:lat "51.0648443" ;
+	ds:fee "no" ;
+	ds:women "no" ;
+	ds:men "yes" ;
+	ds:babys_changing_table "no" ;
+	ds:wheelchair_accessible "no" .
+
+<http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898967> ds:id <http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898967> ;
+	ds:long "3.752737" ;
+	ds:lat "51.0645962" ;
+	ds:fee "no" ;
+	ds:women "no" ;
+	ds:men "yes" ;
+	ds:babys_changing_table "no" ;
+	ds:wheelchair_accessible "no" .
+
+<http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898968> ds:id <http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898968> ;
+	ds:long "3.7492351" ;
+	ds:lat "51.062007" ;
+	ds:fee "no" ;
+	ds:women "no" ;
+	ds:men "yes" ;
+	ds:babys_changing_table "no" ;
+	ds:wheelchair_accessible "no" .

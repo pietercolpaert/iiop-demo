@@ -1,0 +1,60 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ds: <http://iiop.demo.thedatatank.com/test/ghent1/> .
+
+
+ds:kml_1 ds:identifier "kml_1" ;
+	ds:uri <http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0> ;
+	ds:idghent "PS_151" ;
+	ds:long "3.7294641045" ;
+	ds:lat "51.0639881532" ;
+	ds:type_sanit ds:urinal ;
+	ds:type_location <http://iiop.demo.thedatatank.com/test/ghent1/Urinoir+op+openbaar+domein> ;
+	ds:fee "free" ;
+	<http://iiop.demo.thedatatank.com/test/ghent1/open7/7> "yes" .
+
+ds:kml_2 ds:identifier "kml_2" ;
+	ds:uri <http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1> ;
+	ds:idghent "PS_187" ;
+	ds:long "3.7203060201" ;
+	ds:lat "51.0230955068" ;
+	ds:type_sanit ds:urinal ;
+	ds:type_location <http://iiop.demo.thedatatank.com/test/ghent1/Urinoir+op+openbaar+domein> ;
+	ds:fee "free" ;
+	<http://iiop.demo.thedatatank.com/test/ghent1/open7/7> "yes" .
+
+ds:kml_3 ds:identifier "kml_3" ;
+	ds:uri <http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2> ;
+	ds:idghent "PS_62" ;
+	ds:long "3.7306117912" ;
+	ds:lat "51.0475564505" ;
+	ds:location "AC Zuid" ;
+	ds:type_sanit <http://iiop.demo.thedatatank.com/test/ghent1/volwaardig+san%2Bgehand%2Bluiertafel> ;
+	ds:type_location <http://iiop.demo.thedatatank.com/test/ghent1/Openbaar+gebouw> ;
+	ds:fee "free" ;
+	<http://iiop.demo.thedatatank.com/test/ghent1/open7/7> "no" .
+
+ds:kml_4 ds:identifier "kml_4" ;
+	ds:uri <http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F3> ;
+	ds:idghent "PS_67" ;
+	ds:long "3.7615447288" ;
+	ds:lat "51.0598198318" ;
+	ds:location "Sporthal Rozebroeken" ;
+	ds:type_sanit <http://iiop.demo.thedatatank.com/test/ghent1/volwaardige+sanitaire+eenheid> ;
+	ds:type_location <http://iiop.demo.thedatatank.com/test/ghent1/sporthallen/zwembaden> ;
+	ds:fee "free" ;
+	<http://iiop.demo.thedatatank.com/test/ghent1/open7/7> "yes" .
+
+ds:kml_5 ds:identifier "kml_5" ;
+	ds:uri <http://iiop.demo.thedatatank.com/test/ghent1/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F4> ;
+	ds:idghent "PS_159" ;
+	ds:long "3.7670481447" ;
+	ds:lat "51.0845372167" ;
+	ds:location "Zwembad Rosas" ;
+	ds:type_sanit <http://iiop.demo.thedatatank.com/test/ghent1/volwaardig+san%2Bgehand> ;
+	ds:type_location <http://iiop.demo.thedatatank.com/test/ghent1/sporthallen/zwembaden> ;
+	ds:fee "free" ;
+	<http://iiop.demo.thedatatank.com/test/ghent1/open7/7> "yes" .

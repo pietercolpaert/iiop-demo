@@ -1,0 +1,57 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ds: <http://iiop.demo.thedatatank.com/test/antwerp/> .
+
+
+<http://iiop.demo.thedatatank.com/test/antwerp/108> ds:identifier "108" ;
+	ds:description "Hessenhuis" ;
+	ds:type ds:toilet ;
+	ds:fee "no" ;
+	ds:maintainer ds:CS ;
+	ds:audience <http://iiop.demo.thedatatank.com/test/antwerp/men+and+women> ;
+	ds:babys_changing_table "yes" ;
+	ds:lat "51.22595614" ;
+	ds:long "4.409403" .
+
+<http://iiop.demo.thedatatank.com/test/antwerp/1> ds:identifier "1" ;
+	ds:description "AMVC Letterenhuis" ;
+	ds:type ds:toilet ;
+	ds:fee "no" ;
+	ds:maintainer ds:CS ;
+	ds:audience <http://iiop.demo.thedatatank.com/test/antwerp/men+and+women> ;
+	ds:babys_changing_table "no" ;
+	ds:lat "51.222801627" ;
+	ds:long "4.404691963" .
+
+<http://iiop.demo.thedatatank.com/test/antwerp/2> ds:identifier "2" ;
+	ds:description "Museum Plantin Moretus" ;
+	ds:type ds:toilet ;
+	ds:fee "no" ;
+	ds:maintainer ds:CS ;
+	ds:audience <http://iiop.demo.thedatatank.com/test/antwerp/men+and+women> ;
+	ds:babys_changing_table "no" ;
+	ds:lat "51.218343538" ;
+	ds:long "4.398011336" .
+
+<http://iiop.demo.thedatatank.com/test/antwerp/3> ds:identifier "3" ;
+	ds:description "Rubenianum" ;
+	ds:type ds:toilet ;
+	ds:fee "no" ;
+	ds:maintainer ds:CS ;
+	ds:audience <http://iiop.demo.thedatatank.com/test/antwerp/men+and+women> ;
+	ds:babys_changing_table "no" ;
+	ds:lat "51.217105985" ;
+	ds:long "4.410256375" .
+
+<http://iiop.demo.thedatatank.com/test/antwerp/4> ds:identifier "4" ;
+	ds:description "Dienstencentrum De Oever" ;
+	ds:type ds:toilet ;
+	ds:fee "no" ;
+	ds:maintainer ds:OCMW ;
+	ds:audience <http://iiop.demo.thedatatank.com/test/antwerp/men+and+women> ;
+	ds:babys_changing_table "no" ;
+	ds:lat "51.21728717" ;
+	ds:long "4.39745614" .

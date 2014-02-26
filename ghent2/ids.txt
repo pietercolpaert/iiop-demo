@@ -1,0 +1,11 @@
+<http://iiop.demo.thedatatank.com/test/ghent2/babys_changing_table>
+<http://iiop.demo.thedatatank.com/test/ghent2/fee>
+<http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898966>
+<http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898967>
+<http://iiop.demo.thedatatank.com/test/ghent2/http%3A%2F%2Flinkedgeodata.org%2Ftriplify%2Fnode458898968>
+<http://iiop.demo.thedatatank.com/test/ghent2/id>
+<http://iiop.demo.thedatatank.com/test/ghent2/lat>
+<http://iiop.demo.thedatatank.com/test/ghent2/long>
+<http://iiop.demo.thedatatank.com/test/ghent2/men>
+<http://iiop.demo.thedatatank.com/test/ghent2/wheelchair_accessible>
+<http://iiop.demo.thedatatank.com/test/ghent2/women>
