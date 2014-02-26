@@ -60,10 +60,40 @@ ghent1 | 17
 newyork | 9
 antwerp | 18
 ghent2 | 11
+------:|-----
+__Total__ | 67
 
 ## Step 3: Getting the real world input
 
+There are various ways to get to the real-world input: you can crowd-source it, you can fill it out yourself.
 
+The result of this step should be an n-triples file which contains for each identifier whether it does or does not mean the same in the real world. The predicates that we are going to use for this are defined at http://semweb.mmlab.be/ns/iiop: iiop:sameAs and iiop:notSameAs. For this dataset this means we need 4422 (67*66) statements.
 
 ## Step 4: Making the calculations
+
+We're going to create a dataset of ids that match in the real-world:
+
+_This is kind of hack-ish. We could have loaded it in a triple store and used SPARQL over it._
+
+```bash
+grep /sameAs iiopsa.nt | cut -d" " -f3 | sort > realworldmatches.txt
+```
+
+### IIOP
+
+```bash
+grep newyork realworldmatches.txt | while read a ; do { cat ../reference/reference.nt | grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} -o  ; } done |uniq | wc -l
+grep newyork realworldmatches.txt  | wc -l
+```
+
+Divide these 2 numbers, and you have the IIOP
+
+### Relevance
+
+count the number of triples the real-world matches are mentioned in.
+
+```bash
+#TODO (not correct!)
+cat realworldmatches.txt | while read id ; do { echo $id ; cat ../ghent1/ghent1.nt ../ghent2/ghent2.nt ../newyork/newyork.nt | grep $id | wc -l ; } done > relevance_list.txt
+```
 
