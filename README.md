@@ -162,9 +162,9 @@ while read id ; do {
 echo $p
 ```
 
-Reference and ... | IIOP | relevance p
-:------:|-------------------:|-----:
-ghent1 | 57% | 71
-newyork |0% | 5
-antwerp | 100% | 25
-ghent2 | 75% | 12
+Reference and ... | IIOP | relevance p | questionnaire rank
+:------:|-------------------:|-----: | ---:
+ghent1 | 57% | 71 | 1st _best_
+newyork |0% | 5 | 4th _worst_
+antwerp | 100% | 25 | 2d _second best_
+ghent2 | 75% | 12 | 3d _second worst_
