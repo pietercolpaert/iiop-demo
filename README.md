@@ -67,15 +67,22 @@ __Total__ | __77__
 There are various ways to get to the real-world input: you can crowd-source it, you can reason over already existing data or you can fill it out yourself. The result of this step should be an n-triples file which contains for each identifier whether it does or does not mean the same in the real world. The predicates that we are going to use for this are defined at http://semweb.mmlab.be/ns/iiop ; `iiop:sameAs` and `iiop:notSameAs`. For this dataset this means we need 5852 (77*76) statements. As these statements are unknown at this moment, we can generate a list of 5852 questions.
 
 During the process of solving these questions yourself, you can use a reasoner to assist you. Each time a statement is added, the reasoner will then check whether more questions can be derived.
-In this case, we will use the reasoner by Ruben Verborgh which uses the EYE software.
-Using the command line, this can be done as follows:
-```bash
-#TODOOO
+In this case, we will use the reasoner by Ruben Verborgh which uses the EYE software. We will use this query:
+```n3
+@prefix iiop: <http://semweb.mmlab.be/ns/iiop#> .
+{ ?a iiop:sameAs ?b . } => { ?b iiop:sameAs ?a . } .
+{ ?a iiop:notSameAs ?b . } => { ?b iiop:notSameAs ?a . } .
+{ ?a iiop:sameAs ?b . ?b iiop:sameAs ?c . }
+=>
+{ ?a iiop:sameAs ?c . } .
+{ ?a iiop:notSameAs ?b . ?b iiop:sameAs ?c . }
+=>
+{ ?a iiop:notSameAs ?c . } .
 ```
 
 ### Step 3a: Generating the list of questions
 
-An iiop question is a triple with 1 unknown predicate. The predicate kan be `iiop:sameAs` or `iiop:notSameAs`:
+An iiop question is a triple with 1 unknown predicate. The predicate can be `iiop:sameAs` or `iiop:notSameAs`:
 ```turtle
 <id1> ?unknown <id2> .
 ```
@@ -125,20 +132,11 @@ And you can cary on.
 
 ## Step 4: Making the calculations
 
-We're going to create a dataset of ids that match in the real-world:
- 
-_This is kind of hack-ish. We could have loaded it in a triple store and used SPARQL to query over it._
-
-```bash
-grep -e "^<http://iiop.demo.thedatatank.com/test/antwerp/" iiopstatements.nt | grep sameAs | cut -d" " -f3 | sort > antwerp/realworldmatches.txt
-grep -e "^<http://iiop.demo.thedatatank.com/test/antwerp/" iiopstatements.nt | grep -E "antwerp/(.*?)> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://.*?$1>" | cut -d" " -f3 | sort > antwerp/conflicts.txt
-```
-
 ### IIOP
 
 ```bash
-grep newyork reference/realworldmatches.txt | while read a ; do { cat reference/reference.nt | grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} -o  ; } done | uniq | wc -l
-grep newyork reference/realworldmatches.txt  | wc -l
+grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | cut -d" " -f3 | sort | uniq | while read a ; do { grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} reference/reference.nt -o ; } done | sort | uniq | wc -l
+grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | cut -d" " -f3 | sort | uniq |  grep ghent1 | wc -l
 ```
 
 Divide these 2 numbers, and you have the IIOP
@@ -146,22 +144,42 @@ Divide these 2 numbers, and you have the IIOP
 Reference and ... | IIOP
 :------:|-------------------:
 ghent1 | 8/14 = 57%
-newyork | 0/1 = 0%
+newyork | 1/1 = 100%
 antwerp | 5/5 = 100%
 ghent2 | 3/4 = 75%
 
 ### Relevance
 
-count the number of triples the real-world matches are mentioned in.
+The relevance of the IIOP number is the number of triples that would be returned if the 2 datasets would be joined together, if they were perfectly interoperable.
 
 For instance for Ghent1 do this:
 ```bash
-p=0 ;
-while read id ; do {
-    p=$(( p + `grep $id ghent1/ghent1.nt | wc -l ;`));
-} done < reference/realworldmatches.txt
-echo $p
+grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | grep ghent2 | cut -d" " -f1,3 | while read id1 id2 ; do {
+    cat reference/reference.nt ghent2/ghent2.nt | sort | uniq | grep -E "($id1|$id2)" | while read a ; do {
+        joined=${id1/http:\/\/iiop.demo.thedatatank.com\/test\/reference/http:\/\/example.com\/joined};
+        b=${a/$id1/$joined} ;
+        echo ${b/$id2/$joined} ;
+    } done ;
+} done | sort | uniq > ghent2/joined.nt ;
+wc -l ghent2/joined.nt 
 ```
+
+The end results is this matrix:
+
+Reference and ... | IIOP | relevance p | questionnaire rank
+:------:|---:|-----: |---:
+ghent1 | 57% | 64 | 1st _best_
+antwerp | 100% | 40 | 2d _second best_
+ghent2 | 75% | 18 | 3d _second worst_
+newyork |100% | 0 | 4th _worst_
+
+## Processing feedback
+
+//TODO
+
+### iiop:sameAs as an opportunity for feedback
+
+//TODO
 
 ### Conflicts
 
@@ -170,15 +188,6 @@ Count the number of conflicts: string matches in the IDs, but there is a `iiop:n
 ```bash
 grep -E 'newyork/(.*?)> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://.*?/\1>' iiopstatements.nt | wc -l
 ```
-
-The end results is this matrix:
-
-Reference and ... | IIOP | relevance p | conflicts | questionnaire rank
-:------:|---:|-----: | ---: |---:
-ghent1 | 57% | 71 | 0 | 1st _best_
-newyork |0% | 5 | 0 | 4th _worst_
-antwerp | 100% | 25 | 0 | 2d _second best_
-ghent2 | 75% | 12 | 0 | 3d _second worst_
 
 When we however take newyork as the reference dataset, we get 1 conflict:
 

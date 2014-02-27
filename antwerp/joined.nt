@@ -1,0 +1,40 @@
+<http://iiop.demo.thedatatank.com/test/antwerp/108> <http://example.com/joined/description> "Hessenhuis" .
+<http://iiop.demo.thedatatank.com/test/antwerp/108> <http://example.com/joined/fee> "no" .
+<http://iiop.demo.thedatatank.com/test/antwerp/108> <http://example.com/joined/identifier> "108" .
+<http://iiop.demo.thedatatank.com/test/antwerp/108> <http://example.com/joined/lat> "51.22595614" .
+<http://iiop.demo.thedatatank.com/test/antwerp/108> <http://example.com/joined/long> "4.409403" .
+<http://iiop.demo.thedatatank.com/test/antwerp/1> <http://example.com/joined/description> "AMVC Letterenhuis" .
+<http://iiop.demo.thedatatank.com/test/antwerp/1> <http://example.com/joined/fee> "no" .
+<http://iiop.demo.thedatatank.com/test/antwerp/1> <http://example.com/joined/identifier> "1" .
+<http://iiop.demo.thedatatank.com/test/antwerp/1> <http://example.com/joined/lat> "51.222801627" .
+<http://iiop.demo.thedatatank.com/test/antwerp/1> <http://example.com/joined/long> "4.404691963" .
+<http://iiop.demo.thedatatank.com/test/antwerp/2> <http://example.com/joined/description> "Museum Plantin Moretus" .
+<http://iiop.demo.thedatatank.com/test/antwerp/2> <http://example.com/joined/fee> "no" .
+<http://iiop.demo.thedatatank.com/test/antwerp/2> <http://example.com/joined/identifier> "2" .
+<http://iiop.demo.thedatatank.com/test/antwerp/2> <http://example.com/joined/lat> "51.218343538" .
+<http://iiop.demo.thedatatank.com/test/antwerp/2> <http://example.com/joined/long> "4.398011336" .
+<http://iiop.demo.thedatatank.com/test/antwerp/3> <http://example.com/joined/description> "Rubenianum" .
+<http://iiop.demo.thedatatank.com/test/antwerp/3> <http://example.com/joined/fee> "no" .
+<http://iiop.demo.thedatatank.com/test/antwerp/3> <http://example.com/joined/identifier> "3" .
+<http://iiop.demo.thedatatank.com/test/antwerp/3> <http://example.com/joined/lat> "51.217105985" .
+<http://iiop.demo.thedatatank.com/test/antwerp/3> <http://example.com/joined/long> "4.410256375" .
+<http://iiop.demo.thedatatank.com/test/antwerp/4> <http://example.com/joined/description> "Dienstencentrum De Oever" .
+<http://iiop.demo.thedatatank.com/test/antwerp/4> <http://example.com/joined/fee> "no" .
+<http://iiop.demo.thedatatank.com/test/antwerp/4> <http://example.com/joined/identifier> "4" .
+<http://iiop.demo.thedatatank.com/test/antwerp/4> <http://example.com/joined/lat> "51.21728717" .
+<http://iiop.demo.thedatatank.com/test/antwerp/4> <http://example.com/joined/long> "4.39745614" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0> <http://example.com/joined/description> "Sint-Salvatorkerk Parking" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0> <http://example.com/joined/fee> "0" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0> <http://example.com/joined/identifier> "http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0> <http://example.com/joined/lat> "51.06398815" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F0> <http://example.com/joined/long> "3.729464105" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1> <http://example.com/joined/description> "Rerum novarum" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1> <http://example.com/joined/fee> "0" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1> <http://example.com/joined/identifier> "http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1> <http://example.com/joined/lat> "51.02309551" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F1> <http://example.com/joined/long> "3.72030602" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2> <http://example.com/joined/description> "AC Zuid" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2> <http://example.com/joined/fee> "0" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2> <http://example.com/joined/identifier> "http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2> <http://example.com/joined/lat> "51.04755645" .
+<http://iiop.demo.thedatatank.com/test/reference/http%3A%2F%2Fdatatank.gent.be%2FInfrastructuur%2FPubliekSanitair%2F2> <http://example.com/joined/long> "3.730611791" .

@@ -1,0 +1,9 @@
+@prefix iiop: <http://semweb.mmlab.be/ns/iiop#> .
+{ ?a iiop:sameAs ?b . } => { ?b iiop:sameAs ?a . } .
+{ ?a iiop:notSameAs ?b . } => { ?b iiop:notSameAs ?a . } .
+{ ?a iiop:sameAs ?b . ?b iiop:sameAs ?c . }
+=>
+{ ?a iiop:sameAs ?c . } .
+{ ?a iiop:notSameAs ?b . ?b iiop:sameAs ?c . }
+=>
+{ ?a iiop:notSameAs ?c . } .
