@@ -168,12 +168,12 @@ wc -l ghent1/joined.nt
 
 The end results is this matrix:
 
-Reference and ... | identifier ratio | relevance | relevance ratio | questionnaire rank
-:------:|---:|-----: |--- : |---:
-ghent1 | 57% | 49 | 49/(21+48) = 71% | 1st _best_
-antwerp | 100% | 40 | 40/(21+45) = 61% | 2d _second best_
-ghent2 | 75% | 18 | 18/(21+24) = 40% |3d _second worst_
-newyork |100% | 0 | 0% |4th _worst_
+Reference and ... | identifier ratio | relevance | relevance ratio  | questionnaire rank
+:----------------:|-----------------:|---------: |---------------- :|-------------------:
+ghent1            | 57%              | 49        | 49/(21+48) = 71% | 1st _best_
+antwerp           | 100%             | 40        | 40/(21+45) = 61% | 2d _second best_
+ghent2            | 75%              | 18        | 18/(21+24) = 40% | 3d _second worst_
+newyork           | 100%             | 0         | 0%               | 4th _worst_
 
 ## Step 5: Processing feedback
 
