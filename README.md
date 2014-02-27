@@ -131,6 +131,7 @@ _This is kind of hack-ish. We could have loaded it in a triple store and used SP
 
 ```bash
 grep -e "^<http://iiop.demo.thedatatank.com/test/antwerp/" iiopstatements.nt | grep sameAs | cut -d" " -f3 | sort > antwerp/realworldmatches.txt
+grep -e "^<http://iiop.demo.thedatatank.com/test/antwerp/" iiopstatements.nt | grep -E "antwerp/(.*?)> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://.*?$1>" | cut -d" " -f3 | sort > antwerp/conflicts.txt
 ```
 
 ### IIOP
@@ -162,9 +163,25 @@ while read id ; do {
 echo $p
 ```
 
-Reference and ... | IIOP | relevance p | questionnaire rank
-:------:|-------------------:|-----: | ---:
-ghent1 | 57% | 71 | 1st _best_
-newyork |0% | 5 | 4th _worst_
-antwerp | 100% | 25 | 2d _second best_
-ghent2 | 75% | 12 | 3d _second worst_
+### Conflicts
+
+Count the number of conflicts: string matches in the IDs, but there is a `iiop:notSameAs` statement. This is exactly the opposite of the first number we calculated for the IIOP.
+
+```bash
+grep -E 'newyork/(.*?)> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://.*?/\1>' iiopstatements.nt | wc -l
+```
+
+The end results is this matrix:
+
+Reference and ... | IIOP | relevance p | conflicts | questionnaire rank
+:------:|---:|-----: | ---:
+ghent1 | 57% | 71 | 0 | 1st _best_
+newyork |0% | 5 | 0 | 4th _worst_
+antwerp | 100% | 25 | 0 | 2d _second best_
+ghent2 | 75% | 12 | 0 | 3d _second worst_
+
+When we however take newyork as the reference dataset, we get 1 conflict:
+
+```turtle
+<http://iiop.demo.thedatatank.com/test/newyork/location> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://iiop.demo.thedatatank.com/test/ghent1/location> .
+```
