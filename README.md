@@ -132,16 +132,16 @@ And you can cary on.
 
 ## Step 4: Making the calculations
 
-### IIOP
+### Identifier ratio
 
 ```bash
 grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | cut -d" " -f3 | sort | uniq | while read a ; do { grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} reference/reference.nt -o ; } done | sort | uniq | wc -l
 grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | cut -d" " -f3 | sort | uniq |  grep ghent1 | wc -l
 ```
 
-Divide these 2 numbers, and you have the IIOP
+Divide these 2 numbers, and you have the Identifier ratio
 
-Reference and ... | IIOP
+Reference and ... | Identifier Ratio
 :------:|-------------------:
 ghent1 | 8/14 = 57%
 newyork | 1/1 = 100%
@@ -150,32 +150,34 @@ ghent2 | 3/4 = 75%
 
 ### Relevance
 
-The relevance of the IIOP number is the number of triples that would be returned if the 2 datasets would be joined together, if they were perfectly interoperable.
+The relevance of the Identifier Ratio number is the number of triples that would be returned if the 2 datasets would be joined together, if they were perfectly interoperable.
 
 For instance for Ghent1 do this:
 ```bash
-grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | grep ghent2 | cut -d" " -f1,3 | while read id1 id2 ; do {
-    cat reference/reference.nt ghent2/ghent2.nt | sort | uniq | grep -E "($id1|$id2)" | while read a ; do {
-        joined=${id1/http:\/\/iiop.demo.thedatatank.com\/test\/reference/http:\/\/example.com\/joined};
-        b=${a/$id1/$joined} ;
-        echo ${b/$id2/$joined} ;
-    } done ;
-} done | sort | uniq > ghent2/joined.nt ;
-wc -l ghent2/joined.nt 
+alltriples=$( cat reference/reference.nt ghent1/ghent1.nt | sort | uniq ; );
+grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | grep ghent1 | cut -d" " -f1,3 | { while read id1 id2 ; do
+    joined=${id1/http:\/\/iiop.demo.thedatatank.com\/test\/reference/http:\/\/example.com\/joined};
+    alltriples=${alltriples//$id1/$joined} ;
+    alltriples=${alltriples//$id2/$joined} ;
+    #echo "$alltriples" | grep joined; 
+done ;
+echo "$alltriples" | grep joined | sort | uniq > ghent1/joined.nt ;
+}
+wc -l ghent1/joined.nt 
 ```
 
 The end results is this matrix:
 
-Reference and ... | IIOP | relevance p | questionnaire rank
-:------:|---:|-----: |---:
-ghent1 | 57% | 64 | 1st _best_
-antwerp | 100% | 40 | 2d _second best_
-ghent2 | 75% | 18 | 3d _second worst_
-newyork |100% | 0 | 4th _worst_
+Reference and ... | identifier ratio | relevance | relevance ratio | questionnaire rank
+:------:|---:|-----: |--- : |---:
+ghent1 | 57% | 49 | 49/(21+48) = 71% | 1st _best_
+antwerp | 100% | 40 | 40/(21+45) = 61% | 2d _second best_
+ghent2 | 75% | 18 | 18/(21+24) = 40% |3d _second worst_
+newyork |100% | 0 | 0% |4th _worst_
 
-## Processing feedback
+## Step 5: Processing feedback
 
-//TODO
+The list of IIOP statements is a create opportunity to process feedback. Both ...TODO
 
 ### iiop:sameAs as an opportunity for feedback
 
