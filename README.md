@@ -56,16 +56,15 @@ cut -d" " newyork.nt -f1,2,3 --output-delimiter="
 Dataset | number of IDs
 :------:|-------------------:
 reference| 12
-ghent1 | 17
+ghent1 | 27
 newyork | 9
 antwerp | 18
 ghent2 | 11
-------:|-----
-__Total__ | 67
+__Total__ | __77__
 
 ## Step 3: Getting the real world input
 
-There are various ways to get to the real-world input: you can crowd-source it, you can reason over already existing data or you can fill it out yourself. The result of this step should be an n-triples file which contains for each identifier whether it does or does not mean the same in the real world. The predicates that we are going to use for this are defined at http://semweb.mmlab.be/ns/iiop ; `iiop:sameAs` and `iiop:notSameAs`. For this dataset this means we need 4422 (67*66) statements. As these statements are unknown at this moment, we can generate a list of 4422 questions.
+There are various ways to get to the real-world input: you can crowd-source it, you can reason over already existing data or you can fill it out yourself. The result of this step should be an n-triples file which contains for each identifier whether it does or does not mean the same in the real world. The predicates that we are going to use for this are defined at http://semweb.mmlab.be/ns/iiop ; `iiop:sameAs` and `iiop:notSameAs`. For this dataset this means we need 5852 (77*76) statements. As these statements are unknown at this moment, we can generate a list of 5852 questions.
 
 During the process of solving these questions yourself, you can use a reasoner to assist you. Each time a statement is added, the reasoner will then check whether more questions can be derived.
 In this case, we will use the reasoner by Ruben Verborgh which uses the EYE software.
@@ -74,16 +73,60 @@ Using the command line, this can be done as follows:
 #TODOOO
 ```
 
-### Step 3.1: Generating the list of questions
+### Step 3a: Generating the list of questions
 
+An iiop question is a triple with 1 unknown predicate. The predicate kan be `iiop:sameAs` or `iiop:notSameAs`:
+```turtle
+<id1> ?unknown <id2> .
+```
 
+In order to generate this list, we first generate a list of all identifiers in our system. This is easy, as we already have made a list of all identifiers in each dataset.
 
+```bash
+cat reference/ids.txt ghent1/ids.txt newyork/ids.txt antwerp/ids.txt ghent2/ids.txt > ids.txt
+```
 
+Now, this list will be used to generate a list `questions.nt`. This is solved using 2 while loops:
+
+```bash
+while read id1 ; do {
+  while read id2 ; do {
+    [[ $id1 != $id2 ]] && echo "$id1 ?unknown $id2 . " ; 
+  } done < ids.txt ;
+} done < ids.txt > questions.nt
+```
+
+### Step 3b: Answering the questions
+
+Answering the question can be done in various ways. Each kind of set of data might be able to use its own methods: if we're talking about geospatial data, the identifiers can be compared on a map, if we're talking about tabular data, a mapping GUI could be made. We are going to use a more rudimental approach: we're going to copy the `questions.nt` towards `iiopstatements.nt` and we're going to use a text editor to find-replace-all `?unknown` with `<http://semweb.mmlab.be/ns/iiop#notSameAs>`. Each time we find an identifier which is not the same, we're going to hit "`yes`, replace". If it is the same in the real world, we're going to hit "`no`, don't replace". Afterwards, all remaining `?unknown` will be replace by `<http://semweb.mmlab.be/ns/iiop#notSameAs>`.
+
+After uploading the files on our server, we can use the EYE Reasoner to help us a bit in the process (note that this can actually be implemented by the GUI):
+```bash
+curl "http://eye.restdesc.org/?data=http://iiop.demo.thedatatank.com/iiopstatements.nt&query=http://iiop.demo.thedatatank.com/query.n3" >temp.ttl
+rapper -i turtle -o ntriples temp.ttl > temp.nt
+curl http://iiop.demo.thedatatank.com/iiopstatements.nt> temp2.nt
+cat temp.nt temp2.nt questions.nt | sort -t " " -k 1,1b -k 3,3b | sed 's/[ ]*$//' | uniq > answers.nt
+rm temp.nt temp.ttl temp2.nt 
+```
+You can then reopen answers.nt in your editor, remove the duplicates, and carry on with your work.
+
+Remove duplicates using Emacs regex (C-M %)
+```
+\(<.*?>\) \(<http://semweb.mmlab.be/ns/iiop#n?o?t?[sS]ameAs>\) \(<.*?>\) .
+\1 \?unknown \3 . 
+```
+with
+```
+\1 \2 \3 .
+
+```
+
+And you can cary on.
 
 ## Step 4: Making the calculations
 
 We're going to create a dataset of ids that match in the real-world:
-
+ 
 _This is kind of hack-ish. We could have loaded it in a triple store and used SPARQL to query over it._
 
 ```bash
