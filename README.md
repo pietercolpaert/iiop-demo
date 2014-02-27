@@ -174,7 +174,7 @@ grep -E 'newyork/(.*?)> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://.*?/\
 The end results is this matrix:
 
 Reference and ... | IIOP | relevance p | conflicts | questionnaire rank
-:------:|---:|-----: | ---:
+:------:|---:|-----: | ---: |---:
 ghent1 | 57% | 71 | 0 | 1st _best_
 newyork |0% | 5 | 0 | 4th _worst_
 antwerp | 100% | 25 | 0 | 2d _second best_
