@@ -160,7 +160,7 @@ while read id ; do {
     p=$(( p + `grep $id ghent1/ghent1.nt | wc -l ;`));
 } done < reference/realworldmatches.txt
 echo $p
-``
+```
 
 Reference and ... | IIOP | relevance p
 :------:|-------------------:|-----:
