@@ -1,0 +1,16 @@
+<http://iiop.demo.thedatatank.com/test/antwerp/babys_changing_table>
+<http://iiop.demo.thedatatank.com/test/antwerp/fee>
+<http://iiop.demo.thedatatank.com/test/antwerp/identifier>
+<http://iiop.demo.thedatatank.com/test/antwerp/lat>
+<http://iiop.demo.thedatatank.com/test/antwerp/long>
+<http://iiop.demo.thedatatank.com/test/ghent1/fee>
+<http://iiop.demo.thedatatank.com/test/ghent1/identifier>
+<http://iiop.demo.thedatatank.com/test/ghent1/idghent>
+<http://iiop.demo.thedatatank.com/test/ghent1/lat>
+<http://iiop.demo.thedatatank.com/test/ghent1/uri>
+<http://iiop.demo.thedatatank.com/test/ghent2/fee>
+<http://iiop.demo.thedatatank.com/test/newyork/handicapaccessible>
+<http://iiop.demo.thedatatank.com/test/reference/fee>
+<http://iiop.demo.thedatatank.com/test/reference/identifier>
+<http://iiop.demo.thedatatank.com/test/reference/lat>
+<http://iiop.demo.thedatatank.com/test/reference/long>

@@ -130,24 +130,41 @@ We're going to create a dataset of ids that match in the real-world:
 _This is kind of hack-ish. We could have loaded it in a triple store and used SPARQL to query over it._
 
 ```bash
-grep /sameAs iiopsa.nt | cut -d" " -f3 | sort > realworldmatches.txt
+grep -e "^<http://iiop.demo.thedatatank.com/test/antwerp/" iiopstatements.nt | grep sameAs | cut -d" " -f3 | sort > antwerp/realworldmatches.txt
 ```
 
 ### IIOP
 
 ```bash
-grep newyork realworldmatches.txt | while read a ; do { cat ../reference/reference.nt | grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} -o  ; } done | uniq | wc -l
-grep newyork realworldmatches.txt  | wc -l
+grep newyork reference/realworldmatches.txt | while read a ; do { cat reference/reference.nt | grep ${a#<http://iiop.demo.thedatatank.com/test/newyork/} -o  ; } done | uniq | wc -l
+grep newyork reference/realworldmatches.txt  | wc -l
 ```
 
 Divide these 2 numbers, and you have the IIOP
+
+Reference and ... | IIOP
+:------:|-------------------:
+ghent1 | 8/14 = 57%
+newyork | 0/1 = 0%
+antwerp | 5/5 = 100%
+ghent2 | 3/4 = 75%
 
 ### Relevance
 
 count the number of triples the real-world matches are mentioned in.
 
+For instance for Ghent1 do this:
 ```bash
-#TODO (not correct!)
-cat realworldmatches.txt | while read id ; do { echo $id ; cat ../ghent1/ghent1.nt ../ghent2/ghent2.nt ../newyork/newyork.nt | grep $id | wc -l ; } done > relevance_list.txt
-```
+p=0 ;
+while read id ; do {
+    p=$(( p + `grep $id ghent1/ghent1.nt | wc -l ;`));
+} done < reference/realworldmatches.txt
+echo $p
+``
 
+Reference and ... | IIOP | relevance p
+:------:|-------------------:|-----:
+ghent1 | 57% | 71
+newyork |0% | 5
+antwerp | 100% | 25
+ghent2 | 75% | 12

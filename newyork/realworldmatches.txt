@@ -1,0 +1,4 @@
+<http://iiop.demo.thedatatank.com/test/ghent1/open7/7>
+<http://iiop.demo.thedatatank.com/test/ghent1/volwaardig+san%2Bgehand>
+<http://iiop.demo.thedatatank.com/test/ghent2/wheelchair_accessible>
+<http://iiop.demo.thedatatank.com/test/reference/always_open>
