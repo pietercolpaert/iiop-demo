@@ -128,7 +128,7 @@ with
 
 ```
 
-And you can cary on.
+And you can carry on.
 
 ## Step 4: Making the calculations
 
@@ -166,10 +166,14 @@ echo "$alltriples" | grep joined | sort | uniq > ghent1/joined.nt ;
 wc -l ghent1/joined.nt 
 ```
 
-The end results is this matrix:
+### Relevance ratio
 
-Reference and ... | identifier ratio | relevance |   relevance ratio  | questionnaire rank
-:----------------:|-----------------:|----------:|-------------------:|-------------------:
+The relevance ratio is the ratio of the relevance over the sum of both triple counts.
+
+The end results is this table:
+
+Reference and ... | identifier ratio | relevance | relevance ratio  | questionnaire rank
+:----------------:|-----------------:|----------:|-----------------:|-------------------:
 ghent1            | 57%              | 49        | 49/(21+48) = 71% | 1st _best_
 antwerp           | 100%             | 40        | 40/(21+45) = 61% | 2d _second best_
 ghent2            | 75%              | 18        | 18/(21+24) = 40% | 3d _second worst_
@@ -177,22 +181,21 @@ newyork           | 100%             | 0         | 0%               | 4th _worst
 
 ## Step 5: Processing feedback
 
-The list of IIOP statements is a create opportunity to process feedback. Both ...TODO
+The list of IIOP statements is a great opportunity to process feedback. Both the `iiop:notSameAs`as the `iiop:sameAs` statements are interesting for feedback towards the dataset maintainer. Each `iiop:sameAs` link can be considered as an opportunity to use the same identifiers across datasets.
 
-### iiop:sameAs as an opportunity for feedback
-
-//TODO
-
-### Conflicts
-
-Count the number of conflicts: string matches in the IDs, but there is a `iiop:notSameAs` statement. This is exactly the opposite of the first number we calculated for the IIOP.
+The `iiop:notSameAs` is also a great opportunity to find conflicts between datasets. If you count the number of conflicts: string matches in the IDs, but there is a `iiop:notSameAs` statement. To calculate this, you can perform this small trick:
 
 ```bash
 grep -E 'newyork/(.*?)> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://.*?/\1>' iiopstatements.nt | wc -l
 ```
 
-When we however take newyork as the reference dataset, we get 1 conflict:
+No datasets conflict with the reference dataset. When we however take newyork as the reference dataset, we get 1 conflict:
 
 ```turtle
 <http://iiop.demo.thedatatank.com/test/newyork/location> <http://semweb.mmlab.be/ns/iiop#notSameAs> <http://iiop.demo.thedatatank.com/test/ghent1/location> .
 ```
+
+This is because `newyork/location` is an identifier for a relation between an entity and an address in a string. `ghent1/location` on the other hand is a description of the location, and not an address.
+
+In order to reduce conflicts, we can start making use of URIs and point to global definitions of certain predicates or other concepts. If no URI is defined for what you want to put in the semantics of the identifier, then you can create your own identifier.
+
