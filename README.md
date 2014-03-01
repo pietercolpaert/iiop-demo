@@ -143,41 +143,65 @@ Divide these 2 numbers, and you have the Identifier ratio
 
 Reference and ... | Identifier Ratio
 :------:|-------------------:
-ghent1 | 8/14 = 57%
+ghent1  | 8/14 = 57%
 newyork | 1/1 = 100%
 antwerp | 5/5 = 100%
-ghent2 | 3/4 = 75%
+ghent2  | 3/4 = 75%
 
-### Relevance
+### Identifiers time their use in triples
 
-The relevance of the Identifier Ratio number is the number of triples that would be returned if the 2 datasets would be joined together, if they were perfectly interoperable.
+#### Relevance of string matching identifiers
+
+The current relevance is the number of triples that would be returned if the 2 datasets would be joined together, only matching the true positives.
 
 For instance for Ghent1 do this:
 ```bash
-alltriples=$( cat reference/reference.nt ghent1/ghent1.nt | sort | uniq ; );
-grep -E 'reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/\1>' iiopstatements.nt | grep ghent1 | cut -d" " -f1,3 | { while read id1 id2 ; do
+datasetname=ghent1;
+alltriples=$( cat reference/reference.nt $datasetname/$datasetname.nt | sort | uniq ; );
+grep -E "reference/(.*?)> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/$datasetname/\1>" iiopstatements.nt | cut -d" " -f1,3 | { while read id1 id2 ; do
     joined=${id1/http:\/\/iiop.demo.thedatatank.com\/test\/reference/http:\/\/example.com\/joined};
+     #joined=${id2/http:\/\/iiop.demo.thedatatank.com\/test\/$datasetname/http:\/\/example.com\/joined};
     alltriples=${alltriples//$id1/$joined} ;
     alltriples=${alltriples//$id2/$joined} ;
     #echo "$alltriples" | grep joined; 
 done ;
-echo "$alltriples" | grep joined | sort | uniq > ghent1/joined.nt ;
+echo "$alltriples" | sort | uniq > $datasetname/joined_reference.nt ;
 }
-wc -l ghent1/joined.nt 
+cut -d" " -f1,2,3 --output-delimiter="
+" $datasetname/joined_reference.nt | grep '/joined' | wc -l
 ```
 
-### Relevance ratio
+#### Maximum relevance possible
+
+This is the count of the usage of matching identifier when we are making the `iiop:sameAs` links the same.
+
+```bash
+datasetname=ghent1;
+alltriples=$( cat reference/reference.nt $datasetname/$datasetname.nt | sort | uniq ; );
+grep -E "reference/.*?> <http://semweb.mmlab.be/ns/iiop#sameAs> <http://.*?/$datasetname/.*?>" iiopstatements.nt | cut -d" " -f1,3 | { while read id1 id2 ; do
+    joined=${id1/http:\/\/iiop.demo.thedatatank.com\/test\/reference/http:\/\/example.com\/joined};
+    #joined=${id2/http:\/\/iiop.demo.thedatatank.com\/test\/$datasetname/http:\/\/example.com\/joined};
+    alltriples=${alltriples//$id1/$joined} ;
+    alltriples=${alltriples//$id2/$joined} ;
+done ;
+echo "$alltriples" | sort | uniq > $datasetname/joined_max_reference.nt ;
+}
+cut -d" " -f1,2,3 --output-delimiter="
+" $datasetname/joined_max_reference.nt | grep '/joined' | wc -l
+```
+
+#### Relevance ratio
 
 The relevance ratio is the ratio of the relevance over the sum of both triple counts.
 
 The end results is this table:
 
-Reference and ... | identifier ratio | relevance | relevance ratio  | questionnaire rank
-:----------------:|-----------------:|----------:|-----------------:|-------------------:
-ghent1            | 57%              | 49        | 49/(21+48) = 71% | 1st _best_
-antwerp           | 100%             | 40        | 40/(21+45) = 61% | 2d _second best_
-ghent2            | 75%              | 18        | 18/(21+24) = 40% | 3d _second worst_
-newyork           | 100%             | 0         | 0%               | 4th _worst_
+Reference and ... | identifier ratio | Relevance of stringmatching IDs | Relevance of real-world concepts  | relevance ratio  | questionnaire rank
+:----------------:|-----------------:|------------------:|------------------:|-----------------:|-------------------:
+ghent1            | 57%              | 64                |                104 | 62% | high
+antwerp           | 100%             | 40                |                 40 | 100% | high
+ghent2            | 75%              | 18                |                24 | 75% | medium
+newyork           | 100%             | 0                 |                 8 | 0%               | low
 
 ## Step 5: Processing feedback
 
